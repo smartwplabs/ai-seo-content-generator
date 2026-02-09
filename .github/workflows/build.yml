@@ -1,0 +1,22 @@
+name: Package Plugin
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create ZIP
+        run: |
+          PLUGIN_SLUG=$(basename $GITHUB_REPOSITORY)
+          mkdir -p dist
+          zip -r dist/${PLUGIN_SLUG}.zip . -x "*.git*" "dist/*" "*.md"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: plugin-zip
+          path: dist/*.zip
