@@ -173,6 +173,11 @@ class AI_SEO_Job_Manager {
                 $dep_field
             ));
             
+            // If dependency job doesn't exist in this batch, it wasn't needed (e.g. ai_search_only mode) - treat as satisfied
+            if ($dep_status === null) {
+                continue;
+            }
+            
             // Dependency must be completed (not pending, processing, or failed)
             if ($dep_status !== 'completed') {
                 return false;

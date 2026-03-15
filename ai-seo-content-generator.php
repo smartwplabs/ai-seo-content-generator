@@ -4,7 +4,7 @@ ob_start(); // Start output buffering to prevent unexpected output
 Plugin Name: AI SEO Content Generator
 Plugin URI: https://smartwplabs.com/ai-seo-content-generator
 Description: Generates SEO content for WooCommerce products using various AI engines. Works with Rank Math, Yoast SEO, All in One SEO, SEOPress, or standalone. Optimized for 90-100/100 SEO scores.
-Version: 2.1.20
+Version: 2.1.21
 Author: Smart WP Labs
 Author URI: https://smartwplabs.com
 License: GPL2
@@ -20,7 +20,7 @@ if (!defined('ABSPATH')) {
 }
 
 // Define plugin constants
-define('AI_SEO_VERSION', '2.1.20'); // Added Description Length setting (standard/long/premium)
+define('AI_SEO_VERSION', '2.1.21'); // Fix: ai_search_only mode - missing dependency jobs now treated as satisfied
 define('AI_SEO_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('AI_SEO_PLUGIN_URL', plugin_dir_url(__FILE__));
 

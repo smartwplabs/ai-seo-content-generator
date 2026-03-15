@@ -271,7 +271,9 @@ function ai_seo_search_render_additional_info_tab() {
     global $product;
     
     // Render original WooCommerce additional information (attributes table)
-    do_action('woocommerce_product_additional_information', $product);
+    wc_get_template('single-product/product-attributes.php', [
+        'product_attributes' => array_filter($product->get_attributes(), 'wc_attributes_array_filter_visible')
+    ]);
     
     // Now render the AI content below
     global $post;
